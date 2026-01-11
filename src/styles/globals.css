@@ -22,8 +22,13 @@
         @apply text-2xl font-bold sm:text-3xl;
     }
 
-    a:not(.btn) {
+     h3 {
+        @apply text-xl font-semibold;
+    }
+
+     a:not(.btn) {
         @apply underline transition hover:opacity-80;
+    }
     }
 
     pre {
