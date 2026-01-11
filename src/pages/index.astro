@@ -1,19 +1,150 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+ const services = [
+    {
+        title: 'Help Center Architecture',
+        description: 'We design and build comprehensive help centers that empower your customers to find answers quickly. From information architecture to content strategy, we create self-service experiences that reduce support tickets.',
+        icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'
+    },
+    {
+        title: 'AI Support Agents',
+        description: 'Custom AI agents trained on your knowledge base to handle customer inquiries 24/7. Our agents understand your business context and deliver accurate, helpful responses that feel human.',
+        icon: 'M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5'
+    },
+    {
+        title: 'Knowledge Base Strategy',
+        description: 'Strategic consulting to organize, structure, and optimize your documentation. We help you build a knowledge foundation that scales with your business and serves both customers and support teams.',
+        icon: 'M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125'
+    }
+];
+
+ const benefits = [
+    { stat: '70%', label: 'Reduction in support tickets' },
+    { stat: '24/7', label: 'AI-powered availability' },
+    { stat: '3x', label: 'Faster time to resolution' },
+    { stat: '95%', label: 'Customer satisfaction rate' }
+];
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+ <Layout title="KlaraDocs - Redefining B2B Customer Support">
+    <!-- Hero Section -->
+    <section class="py-12 sm:py-20 text-center">
+        <h1 class="mb-6 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+            Redefine Your<br />
+            <span class="text-primary">Customer Support</span>
+        </h1>
+        <p class="max-w-2xl mx-auto mb-10 text-lg sm:text-xl text-gray-300 leading-relaxed">
+            We are knowledge base architects. We build help centers and create AI agents
+            that transform how B2B businesses support their customers.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#services" class="btn btn-lg sm:min-w-48">
+                Our Services
+            </a>
+            <a href="#contact" class="btn btn-lg sm:min-w-48 bg-transparent border-2 border-primary hover:bg-primary/10">
+                Get in Touch
+            </a>
+        </div>
+    </section>
+
+     <!-- Stats Section -->
+    <section class="py-12 sm:py-16">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {benefits.map((benefit) => (
+                <div class="text-center p-6 rounded-xl bg-white/5 backdrop-blur-sm">
+                    <div class="text-3xl sm:text-4xl font-bold text-primary mb-2">{benefit.stat}</div>
+                    <div class="text-sm sm:text-base text-gray-300">{benefit.label}</div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+     <!-- Services Section -->
+    <section id="services" class="py-12 sm:py-20">
+        <h2 class="text-center mb-4">What We Do</h2>
+        <p class="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
+            We specialize in building the infrastructure that empowers your customers
+            to help themselves while giving your team the tools to excel.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+            {services.map((service) => (
+                <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary/50 transition-colors">
+                    <div class="w-12 h-12 mb-6 rounded-lg bg-primary/20 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d={service.icon} />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">{service.title}</h3>
+                    <p class="text-gray-300 leading-relaxed">{service.description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+     <!-- Why Us Section -->
+    <section class="py-12 sm:py-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="mb-6">Why B2B Companies Choose KlaraDocs</h2>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    B2B support is complex. Your customers need technical depth, your products
+                    evolve rapidly, and your support team needs to scale without burning out.
+                </p>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    We understand these challenges because we've lived them. Our approach combines
+                    deep knowledge management expertise with cutting-edge AI to create support
+                    experiences that actually work.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-gray-200">Enterprise-grade security and compliance</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-gray-200">Seamless integration with your existing tools</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-gray-200">Dedicated support throughout implementation</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-gray-200">Measurable ROI from day one</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative">
+                <div class="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-complementary/40 p-8 flex items-center justify-center">
+                    <svg class="w-32 h-32 sm:w-48 sm:h-48 text-primary/60" fill="none" viewBox="0 0 24 24" stroke-width="0.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- CTA Section -->
+    <section id="contact" class="py-12 sm:py-20">
+        <div class="text-center p-8 sm:p-12 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
+            <h2 class="mb-4">Ready to Transform Your Support?</h2>
+            <p class="text-gray-300 mb-8 max-w-xl mx-auto">
+                Let's discuss how KlaraDocs can help you build a support experience
+                that delights your customers and empowers your team.
+            </p>
+            <a href="mailto:hello@klaradocs.com" class="btn btn-lg sm:min-w-64">
+                Schedule a Consultation
+            </a>
+        </div>
+    </section>
 </Layout>
